@@ -21,3 +21,4 @@ Use this as a starting point to complete the WDD 330 team activity: the SleepOut
 
 ## Netlify
 - https://app.netlify.com/sites/luminous-selkie-e8df53/overview
+- https://main--luminous-selkie-e8df53.netlify.app/
