@@ -200,8 +200,24 @@ button {
 .cart-card__price {
   grid-row: 2;
   grid-column: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
+.product-card__discounted,
+.cart-cart__discounted {
+  color: red;
+  text-decoration: line-through;
+  font-weight: 600;
+  text-decoration-thickness: 2px;
+  display: inline-block;
+  margin-left: 12px;
+}
+.cart-cart__discounted {
+  margin-left: 0;
+  font-size: 1rem;
+}
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
