@@ -7,7 +7,10 @@ function renderCartContents() {
 }
 
 function cartItemTemplate(item) {
-      const htmDiscounted = item.FinalPrice < item.SuggestedRetailPrice ? `<span class="cart-cart__discounted">$${item.SuggestedRetailPrice}</span>` : ""
+  const htmDiscounted =
+    item.FinalPrice < item.SuggestedRetailPrice
+      ? `<span class="cart-cart__discounted">$${item.SuggestedRetailPrice}</span>`
+      : "";
   const newItem = `<li class="cart-card divider">
   <a href="#" class="cart-card__image">
     <img
