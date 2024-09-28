@@ -1,6 +1,7 @@
 import { setLocalStorage } from "./utils.mjs";
 
 function productDetailsTemplate(product) {
+    const htmDiscounted = product.FinalPrice < product.SuggestedRetailPrice ? `<span class="product-card__discounted">$${product.SuggestedRetailPrice}</span>` : ""
   return `<section class="product-detail">
         <h3>${product.Brand.Name}</h3>
         <h2 class="divider">Ajax Tent - 3-Person, 3-Season</h2>
@@ -9,7 +10,7 @@ function productDetailsTemplate(product) {
           src="${product.Image}"
           alt="${product.NameWithoutBrand}"
         />
-        <p class="product-card__price">$${product.FinalPrice}</p>
+        <p class="product-card__price">$${product.FinalPrice}${htmDiscounted}</p>
         <p class="product__color">${product.Colors[0].ColorName}</p>
         <p class="product__description">${product.DescriptionHtmlSimple}</p>
         <div class="product-detail__add">
