@@ -218,6 +218,31 @@ button {
   margin-left: 0;
   font-size: 1rem;
 }
+.categories {
+  display: grid;
+  grid-template-columns: repeat(2, 110px);
+  grid-template-rows: repeat(2, 150px);
+  justify-content: center;
+  align-items: center;
+  gap: 1.3rem;
+  padding: 0.5rem;
+}
+.categories > a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+  text-decoration: none;
+  color: black;
+}
+.categories span {
+  font-weight: 600;
+  text-align: center;
+}
+.categories img {
+  width: 90%;
+}
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
@@ -229,6 +254,11 @@ button {
   .cart-card {
     font-size: inherit;
     grid-template-columns: 150px auto 15%;
+  }
+  .categories {
+    grid-template-columns: repeat(4, 110px);
+    grid-template-rows: auto;
+    gap: 3rem;
   }
 }
 
