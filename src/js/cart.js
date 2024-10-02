@@ -2,11 +2,12 @@ import { getLocalStorage } from "./utils.mjs";
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
-  const htmlItems = cartItems.map((item) => cartItemTemplate(item));
+  const htmlItems = cartItems?.map((item) => cartItemTemplate(item)) || [];
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
 }
 
 function cartItemTemplate(item) {
+      const htmDiscounted = item.FinalPrice < item.SuggestedRetailPrice ? `<span class="cart-cart__discounted">$${item.SuggestedRetailPrice}</span>` : ""
   const newItem = `<li class="cart-card divider">
   <a href="#" class="cart-card__image">
     <img
@@ -19,7 +20,7 @@ function cartItemTemplate(item) {
   </a>
   <p class="cart-card__color">${item.Colors[0].ColorName}</p>
   <p class="cart-card__quantity">qty: 1</p>
-  <p class="cart-card__price">$${item.FinalPrice}</p>
+  <p class="cart-card__price">${htmDiscounted}$${item.FinalPrice}</p>
 </li>`;
 
   return newItem;
