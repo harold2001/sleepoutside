@@ -15,9 +15,9 @@ function cartItemTemplate(item) {
       ? `<span class="cart-cart__discounted">$${item.SuggestedRetailPrice}</span>`
       : "";
   const newItem = `<li class="cart-card divider">
-  <a href="#" class="cart-card__image">
+  <a href="/product_pages/?product=${item.Id}" class="cart-card__image">
     <img
-      src="${item.Images.PrimaryMedium}"
+      src="${item.Images?.PrimaryMedium}"
       alt="${item.Name}"
     />
   </a>

@@ -3,7 +3,7 @@ import { renderListWithTemplate } from "./utils.mjs";
 function productCardTemplate(product) {
   const htmDiscounted = product.FinalPrice < product.SuggestedRetailPrice ? `<span class="product-card__discounted">$${product.SuggestedRetailPrice}</span>` : ""
   return `<li class="product-card">
-      <a href="/product_pages/index.html?product=${product.Id}">
+      <a href="/product_pages/?product=${product.Id}">
         <img src="${product.Images.PrimaryMedium}" alt="Image of ${product.Name}">
         <h3 class="card__brand">${product.Brand.Name}</h3>
         <h2 class="card__name">${product.Name}</h2>
