@@ -30,7 +30,13 @@ export default class ShoppingCart {
     }
     renderCartContents() {
         const cartItems = getLocalStorage(this.key);
-        const htmlItems = cartItems?.map((item) => cartItemTemplate(item)) || [];
-        document.querySelector(this.parentSelector).innerHTML = htmlItems.join("");
+        if(cartItems) {
+          const htmlItems = cartItems?.map((item) => cartItemTemplate(item)) || [];
+          document.querySelector(this.parentSelector).innerHTML = htmlItems.join("");
+          document.querySelector(".cart-footer").classList.remove("hide");
+          
+          const total = cartItems.reduce((acc, item) => acc + item.FinalPrice, 0)
+          document.querySelector("#cart-total-price").innerText = `$${total}` ;
+        };
     }
 }
