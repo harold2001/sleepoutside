@@ -205,6 +205,10 @@ button {
   gap: 5px;
 }
 
+.cart-footer.hide {
+  display: none;
+}
+
 .product-card__discounted,
 .cart-cart__discounted {
   color: red;
