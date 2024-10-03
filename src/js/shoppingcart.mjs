@@ -1,21 +1,26 @@
 import { getLocalStorage } from "./utils.mjs";
 
 function cartItemTemplate(item) {
-    const newItem = `
-    <li class="cart-card divider">
-        <a href="#" class="cart-card_image">
-            <img src="${item.Image} alt="${item.Name} />
-        </a>
-        <a href="#">
-            <h2 class="card_name"> ${item.Name}</h2>
-        </a>
-        <p class="cart-card_color">${item.Colors[0].ColorName}</p>
-        <p class="cart-card_quantity">qty: 1</p>
-        <p class="cart-card_price">$${item.FinalPrice}</p>
-    </li>
-    `;
+    const htmDiscounted =
+    item.FinalPrice < item.SuggestedRetailPrice
+      ? `<span class="cart-cart__discounted">$${item.SuggestedRetailPrice}</span>`
+      : "";
+  const newItem = `<li class="cart-card divider">
+    <a href="/product_pages/?product=${item.Id}" class="cart-card__image">
+      <img
+        src="${item.Images?.PrimaryMedium}"
+        alt="${item.Name}"
+      />
+    </a>
+    <a href="#">
+      <h2 class="card__name">${item.Name}</h2>
+    </a>
+    <p class="cart-card__color">${item.Colors[0].ColorName}</p>
+    <p class="cart-card__quantity">qty: 1</p>
+    <p class="cart-card__price">${htmDiscounted}$${item.FinalPrice}</p>
+  </li>`;
 
-    return newItem;
+  return newItem;
 }
 
 export default class ShoppingCart {
@@ -25,7 +30,7 @@ export default class ShoppingCart {
     }
     renderCartContents() {
         const cartItems = getLocalStorage(this.key);
-        const htmlItems = cartItems.map((item) => cartItemTemplate(item));
+        const htmlItems = cartItems?.map((item) => cartItemTemplate(item)) || [];
         document.querySelector(this.parentSelector).innerHTML = htmlItems.join("");
     }
 }
