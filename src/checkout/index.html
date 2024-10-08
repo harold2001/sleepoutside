@@ -8,7 +8,7 @@
 
     <title>Sleep Outside | Checkout</title>
 
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
     <script src="../js/checkout.js" type="module"></script>
   </head>
 
@@ -16,8 +16,42 @@
     <header class="divider" id="main-header"></header>
 
     <main class="divider">
-      <section class="products">
+      <section class="checkout">
         <h2>Review & Place your Order</h2>
+        <form class="checkout-form">
+          <fieldset>
+            <legend>Customer</legend>
+            <label
+              >First name<input type="text" name="firstName" required />
+            </label>
+            <label
+              >Last name<input type="text" name="lastName" required />
+            </label>
+            <label
+              >Street Address<input type="text" name="streetAddress" required />
+            </label>
+            <label>City<input type="text" name="city" required /> </label>
+            <label>State<input type="text" name="state" required /> </label>
+            <label
+              >Zip Code<input type="text" name="zipCode" required />
+            </label>
+          </fieldset>
+          <fieldset>
+            <legend>Payment</legend>
+            <label
+              >Credit Card Number<input
+                type="text"
+                name="creditCardNumber"
+                required
+            /></label>
+            <label
+              >Expiration Date<input type="text" name="expirationDate" required
+            /></label>
+            <label
+              >Security Code (CVV)<input type="text" name="cvv" required
+            /></label>
+          </fieldset>
+        </form>
       </section>
     </main>
 
