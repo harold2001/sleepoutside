@@ -8,7 +8,7 @@
 
     <title>Sleep Outside | Checkout</title>
 
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
     <script src="../js/checkout.js" type="module"></script>
   </head>
 
@@ -16,8 +16,119 @@
     <header class="divider" id="main-header"></header>
 
     <main class="divider">
-      <section class="products">
-        <h2>Review & Place your Order</h2>
+      <h2>Review & Place your Order</h2>
+      <section class="checkout">
+        <form name="checkout" class="checkout-form">
+          <fieldset>
+            <legend>Shipping</legend>
+            <label
+              >First Name<input
+                name="fname"
+                id="fname"
+                type="text"
+                pattern="[A-Za-z]+"
+                title="Only letters are allowed"
+                required
+            /></label>
+            <label
+              >Last Name<input
+                name="lname"
+                id="lname"
+                type="text"
+                pattern="[A-Za-z]+"
+                title="Only letters are allowed"
+                required
+            /></label>
+            <label
+              >Street<input
+                name="street"
+                id="street"
+                type="text"
+                pattern="^[\w\s.-]+$"
+                title="Please enter a valid address"
+                required
+            /></label>
+            <label
+              >City<input
+                name="city"
+                id="city"
+                type="text"
+                pattern="[A-Za-z\s]+"
+                title="Only letters are allowed"
+                required
+            /></label>
+            <label
+              >State<input
+                name="state"
+                id="state"
+                type="text"
+                pattern="[A-Za-z\s]+"
+                title="Only letters are allowed"
+                required
+            /></label>
+            <label
+              >Zip<input
+                name="zip"
+                id="zip"
+                type="text"
+                pattern="\d{5}"
+                title="Enter a 5-digit ZIP code"
+                required
+            /></label>
+          </fieldset>
+          <fieldset>
+            <legend>Payment</legend>
+            <label
+              >Card number<input
+                name="cardNumber"
+                id="cardNumber"
+                type="text"
+                pattern="\d{16}"
+                title="Enter a 16-digit credit card number"
+                required
+            /></label>
+            <label
+              >Expiration<input
+                name="expiration"
+                id="expiration"
+                type="month"
+                min="2024-10"
+                title="Enter a valid expiration date"
+                required
+            /></label>
+            <label
+              >Security Code<input
+                name="code"
+                id="code"
+                type="number"
+                pattern="\d{3,4}"
+                title="Enter a 3 or 4-digit CVV"
+                required
+            /></label>
+          </fieldset>
+          <fieldset class="checkout-summary">
+            <legend>Order Summary</legend>
+            <ul>
+              <li>
+                <p>Item Subtotal(<span id="num-items"></span>)</p>
+                <p name="cartTotal" id="cartTotal"></p>
+              </li>
+              <li>
+                <p>Shipping Estimate</p>
+                <p id="shipping"></p>
+              </li>
+              <li>
+                <p>Tax</p>
+                <p id="tax"></p>
+              </li>
+              <li>
+                <p for="orderTotal"><b>Order Total</b></p>
+                <p id="orderTotal"></p>
+              </li>
+            </ul>
+          </fieldset>
+          <button id="checkout-button" type="submit">Checkout</button>
+        </form>
       </section>
     </main>
 
