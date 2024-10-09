@@ -271,15 +271,14 @@ button {
   width: 90%;
 }
 
+/* checkout styles */
 .checkout {
   padding: 0.5em;
 }
-
 .checkout-form {
   display: flex;
   flex-direction: column;
   gap: 1em;
-  font-size: var(--small-font);
   max-width: 350px;
   margin: auto;
 }
@@ -292,7 +291,6 @@ button {
   padding: 1em;
 }
 .checkout-form legend {
-  font-size: var(--large-font);
   font-weight: 600;
 }
 .checkout-form label {
@@ -303,7 +301,20 @@ button {
 .checkout-form input {
   padding: 0.5em;
 }
-.checkout-button {
+.checkout-summary > ul {
+  padding-left: 0;
+  list-style-type: none;
+}
+.checkout-summary li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.checkout-summary input {
+  width: 25%;
+  font-size: 1em;
+}
+#checkout-button {
   border-radius: 5px;
 }
 @media screen and (min-width: 500px) {
