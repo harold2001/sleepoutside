@@ -303,6 +303,9 @@ button {
 .checkout-form input {
   padding: 0.5em;
 }
+.checkout-button {
+  border-radius: 5px;
+}
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
