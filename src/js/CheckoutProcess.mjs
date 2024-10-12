@@ -1,7 +1,6 @@
-import { getLocalStorage } from "./utils.mjs";
+import { alertMessage, getLocalStorage, removeAllAlerts } from "./utils.mjs";
 import ExternalServices from "./ExternalServices.mjs";
 
-const services = new ExternalServices();
 function formDataToJSON(formElement) {
   const formData = new FormData(formElement),
     convertedJSON = {};
@@ -38,10 +37,12 @@ export default class CheckoutProcess {
     this.tax = 0;
     this.orderTotal = 0;
   }
+
   init() {
     this.list = getLocalStorage(this.key);
     this.calculateItemSummary();
   }
+
   calculateItemSummary() {
     const summaryElement = document.querySelector(
       this.outputSelector + " #cartTotal",
@@ -56,6 +57,7 @@ export default class CheckoutProcess {
     summaryElement.innerText = "$" + this.itemTotal.toFixed(2);
     this.calculateOrdertotal();
   }
+
   calculateOrdertotal() {
     this.shipping = 10 + (this.list.length - 1) * 2;
     this.tax = (this.itemTotal * 0.06).toFixed(2);
@@ -66,6 +68,7 @@ export default class CheckoutProcess {
     ).toFixed(2);
     this.displayOrderTotals();
   }
+
   displayOrderTotals() {
     const shipping = document.querySelector(this.outputSelector + " #shipping");
     const tax = document.querySelector(this.outputSelector + " #tax");
@@ -76,7 +79,9 @@ export default class CheckoutProcess {
     tax.innerText = "$" + this.tax;
     orderTotal.innerText = "$" + this.orderTotal;
   }
+
   async checkout() {
+    const services = new ExternalServices();
     const formElement = document.forms["checkout"];
 
     const json = formDataToJSON(formElement);
@@ -89,8 +94,15 @@ export default class CheckoutProcess {
     try {
       const res = await services.checkout(json);
       console.log(res);
+      localStorage.removeItem("so-cart");
+      formElement?.submit();
     } catch (err) {
-      console.error(err);
+      removeAllAlerts();
+      for (let message in err.message) {
+        alertMessage(err.message[message]);
+      }
+
+      console.log(err);
     }
   }
 }

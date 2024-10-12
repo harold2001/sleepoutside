@@ -14,11 +14,15 @@
 
   <body>
     <header class="divider" id="main-header"></header>
-
     <main class="divider">
       <h2>Review & Place your Order</h2>
       <section class="checkout">
-        <form name="checkout" class="checkout-form">
+        <form
+          name="checkout"
+          class="checkout-form"
+          action="succes.html"
+          method="post"
+        >
           <fieldset>
             <legend>Shipping</legend>
             <label
@@ -26,7 +30,7 @@
                 name="fname"
                 id="fname"
                 type="text"
-                pattern="[A-Za-z]+"
+                pattern="[A-Za-z ]+"
                 title="Only letters are allowed"
                 required
             /></label>
@@ -35,19 +39,20 @@
                 name="lname"
                 id="lname"
                 type="text"
-                pattern="[A-Za-z]+"
+                pattern="[A-Za-z ]+"
                 title="Only letters are allowed"
                 required
             /></label>
-            <label
-              >Street<input
+            <label>
+              Street
+              <input
                 name="street"
                 id="street"
                 type="text"
-                pattern="^[\w\s.-]+$"
                 title="Please enter a valid address"
                 required
-            /></label>
+              />
+            </label>
             <label
               >City<input
                 name="city"
@@ -96,15 +101,18 @@
                 title="Enter a valid expiration date"
                 required
             /></label>
-            <label
-              >Security Code<input
+            <label>
+              Security Code
+              <input
                 name="code"
                 id="code"
-                type="number"
+                type="text"
                 pattern="\d{3,4}"
+                inputmode="numeric"
                 title="Enter a 3 or 4-digit CVV"
                 required
-            /></label>
+              />
+            </label>
           </fieldset>
           <fieldset class="checkout-summary">
             <legend>Order Summary</legend>
