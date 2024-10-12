@@ -95,7 +95,7 @@ export default class CheckoutProcess {
       const res = await services.checkout(json);
       console.log(res);
       localStorage.removeItem("so-cart");
-      formElement?.submit();
+      location.assign("/checkout/succes.html");
     } catch (err) {
       removeAllAlerts();
       for (let message in err.message) {
