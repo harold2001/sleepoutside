@@ -166,6 +166,21 @@ button {
   width: 100%;
 }
 
+.product-card__price {
+  display: flex;
+  align-items: center;
+}
+
+.product-card__percentage {
+  background-color: red;
+  color: white;
+  padding: 5px;
+  font-size: var(--small-font);
+  font-weight: 600;
+  margin-left: 5px;
+  border-radius: 4px;
+}
+
 /* Start cart list card styles */
 .cart-card {
   display: grid;
@@ -219,7 +234,7 @@ button {
   font-weight: 600;
   text-decoration-thickness: 2px;
   display: inline-block;
-  margin-left: 12px;
+  margin-left: 20px;
 }
 .cart-cart__discounted {
   margin-left: 0;
